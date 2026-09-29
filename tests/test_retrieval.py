@@ -41,3 +41,15 @@ def test_save_and_load_preserves_search_results(tmp_path: Path):
     assert loaded.chunk_count == 1
     assert loaded.source_summaries()[0].name == "notes.md"
     assert loaded.search("audit trails")[0].chunk.chunk_id == "notes-0"
+
+
+def test_rag_query_matches_retrieval_augmented_generation_phrase():
+    index = RetrievalIndex()
+    index.add_source(
+        _source("rag", "rag.md"),
+        [_chunk("rag", "Retrieval-augmented generation grounds answers in source passages.")],
+    )
+
+    results = index.search("What is RAG?", top_k=1)
+
+    assert results[0].chunk.source_id == "rag"

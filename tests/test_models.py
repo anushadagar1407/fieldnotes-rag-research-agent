@@ -74,7 +74,8 @@ def test_document_chunk_requires_stable_source_metadata():
     assert chunk.text == "A normalized passage."
 
 
-def test_settings_defaults_are_project_anchored():
+def test_settings_defaults_are_project_anchored(monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_MODEL", raising=False)
     configured = Settings()
 
     assert configured.data_dir == PROJECT_DIR / "data"

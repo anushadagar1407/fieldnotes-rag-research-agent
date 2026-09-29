@@ -1,5 +1,3 @@
-"""Document extraction and deterministic text chunking for the research index."""
-
 from __future__ import annotations
 
 import csv
@@ -18,7 +16,6 @@ _TEXT_EXTENSIONS = {".txt", ".md", ".markdown"}
 
 
 def _normalize_text(text: str) -> str:
-    """Normalize line endings and trailing whitespace without flattening paragraphs."""
     text = text.replace("\r\n", "\n").replace("\r", "\n")
     return "\n".join(line.rstrip() for line in text.split("\n")).strip()
 
@@ -43,7 +40,6 @@ def _extract_pdf(path: Path) -> str:
 
 
 def extract_text(path: Path) -> str:
-    """Extract readable, normalized text from a supported document."""
     path = Path(path)
     extension = path.suffix.lower()
     if extension in _TEXT_EXTENSIONS:
@@ -63,7 +59,6 @@ def extract_text(path: Path) -> str:
 
 
 def chunk_text(text: str, chunk_size: int = 900, overlap: int = 120) -> list[str]:
-    """Split text into deterministic character windows with a fixed overlap."""
     if chunk_size <= 0:
         raise ValueError("chunk_size must be greater than zero")
     if overlap < 0 or overlap >= chunk_size:
@@ -87,7 +82,6 @@ def _source_id(path: Path, content: bytes) -> str:
 def ingest_file(
     path: Path, chunk_size: int = 900, overlap: int = 120
 ) -> tuple[SourceSummary, list[DocumentChunk]]:
-    """Extract one file and return its summary plus indexed chunks."""
     path = Path(path)
     content = path.read_bytes()
     source_id = _source_id(path, content)

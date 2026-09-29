@@ -1,5 +1,3 @@
-"""FastAPI application for the local RAG research agent."""
-
 from __future__ import annotations
 
 import shutil
@@ -24,7 +22,7 @@ settings.uploads_dir.mkdir(parents=True, exist_ok=True)
 index = RetrievalIndex.load(settings.index_path)
 agent = ResearchAgent()
 
-app = FastAPI(title="RAG Research Agent", version="1.0.0")
+app = FastAPI(title="Anusha Dagar / Fieldnotes", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -112,4 +110,4 @@ else:
 
     @app.get("/")
     def development_root() -> dict:
-        return {"name": "RAG Research Agent", "message": "Build frontend/dist or use the Vite dev server."}
+        return {"name": "Anusha Dagar / Fieldnotes", "message": "Build frontend/dist or use the Vite dev server."}

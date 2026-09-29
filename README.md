@@ -1,6 +1,6 @@
-# Fieldnotes / RAG Research Agent
+# Fieldnotes / Anusha Dagar
 
-A local research console inspired by [RAG-Research-Agent](https://github.com/Sagardeep1/RAG-Research-Agent). It ingests TXT, Markdown, PDF, DOCX, CSV, and JSON files, retrieves relevant passages with a persisted TF-IDF index, answers with citations, logs activity, and exports Markdown reports.
+I built Fieldnotes as a local research console inspired by [RAG-Research-Agent](https://github.com/Sagardeep1/RAG-Research-Agent). I can use it to ingest TXT, Markdown, PDF, DOCX, CSV, and JSON files, find relevant passages with a persisted TF-IDF index, answer with citations, review activity, and export Markdown reports.
 
 ## Run locally
 
@@ -10,7 +10,7 @@ python3.13 -m venv .venv
 env -u ANTHROPIC_MODEL .venv/bin/python run.py
 ```
 
-Open `http://127.0.0.1:8000/`. The app works offline. To enable Anthropic generation, set `ANTHROPIC_API_KEY` in `.env`.
+Open `http://127.0.0.1:8000/`. I can use the app offline. To enable Anthropic generation, I set `ANTHROPIC_API_KEY` in `.env`.
 
 For frontend development, use `cd frontend && npm install && npm run dev`, then set `VITE_API_BASE=http://127.0.0.1:8000` if the Vite server is on port 5173.
 
@@ -22,3 +22,5 @@ cd frontend && npm run build
 ```
 
 The first run creates `data/uploads/`, `data/index.json`, and `data/query_log.jsonl`.
+
+Built by Anusha Dagar.

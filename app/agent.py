@@ -1,5 +1,3 @@
-"""Query routing, safe calculations, and grounded answer generation."""
-
 from __future__ import annotations
 
 import ast

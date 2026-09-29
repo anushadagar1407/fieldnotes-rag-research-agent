@@ -1,5 +1,3 @@
-"""Markdown report rendering."""
-
 from .models import QueryResponse
 
 

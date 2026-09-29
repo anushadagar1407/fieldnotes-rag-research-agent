@@ -1,5 +1,3 @@
-"""Small, persisted TF-IDF retrieval index for local research sources."""
-
 from __future__ import annotations
 
 import json

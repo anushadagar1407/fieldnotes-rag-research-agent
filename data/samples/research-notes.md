@@ -1,5 +1,5 @@
 # Research notes
 
-Evidence-led systems are easier to trust when every answer can point back to a source passage. Retrieval quality should be checked with realistic questions, not only synthetic examples.
+When I build evidence-led systems, I want every answer to point back to a source passage. I check retrieval quality with realistic questions instead of only synthetic examples.
 
-An audit trail records the question, the selected passages, the route taken, and any warnings. This makes an AI workflow observable and gives a reviewer a practical way to challenge an answer.
+I record the question, selected passages, route, and warnings in an audit trail. That gives me a practical way to inspect a result and challenge it when the evidence is weak.

@@ -1,5 +1,3 @@
-"""Environment-backed application settings."""
-
 from pathlib import Path
 
 from pydantic import Field
@@ -10,8 +8,6 @@ PROJECT_DIR = Path(__file__).resolve().parents[1]
 
 
 class Settings(BaseSettings):
-    """Runtime paths and model settings shared by the API and workers."""
-
     model_config = SettingsConfigDict(
         env_file=PROJECT_DIR / ".env",
         env_file_encoding="utf-8",

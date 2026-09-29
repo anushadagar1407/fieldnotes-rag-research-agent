@@ -1,5 +1,3 @@
-"""Pydantic contracts shared across backend services and the frontend."""
-
 from datetime import datetime, timezone
 from typing import Any
 
@@ -23,8 +21,6 @@ class SourceSummary(BaseModel):
 
 
 class DocumentChunk(BaseModel):
-    """A normalized passage in a source document."""
-
     model_config = ConfigDict(extra="ignore")
 
     chunk_id: str

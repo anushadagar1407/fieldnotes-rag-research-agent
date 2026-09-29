@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Fieldnotes API",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["run.py"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Fieldnotes frontend",
+      "type": "shell",
+      "command": "npm run build",
+      "options": {"cwd": "${workspaceFolder}/frontend"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Verify Fieldnotes",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Build Fieldnotes frontend"],
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/python -m pytest tests -q",
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    }
+  ]
+}

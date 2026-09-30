@@ -37,7 +37,7 @@ Upload files -> extract and chunk text -> persist a TF-IDF index
 
 | Check | Result | What it covers |
 | --- | --- | --- |
-| Backend test suite | 21 passed | ingestion, retrieval, agent routing, API endpoints, reports, and models |
+| Backend test suite | 22 passed | ingestion, retrieval, agent routing, API endpoints, reports, models, and RAG acronym queries |
 | Offline retrieval flow | verified | indexed passage, cited answer, retrieval trace, and local mode |
 | Frontend production build | passed | Vite production bundle |
 

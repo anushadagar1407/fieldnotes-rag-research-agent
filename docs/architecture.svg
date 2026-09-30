@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Fieldnotes architecture</title>
+  <desc id="desc">A local-first flow from uploaded files through text extraction, TF-IDF retrieval, answer generation, and cited output.</desc>
+  <rect width="1200" height="360" fill="#0b1114" />
+  <text x="56" y="54" fill="#a6e7da" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">FIELDNOTES / ARCHITECTURE</text>
+  <text x="56" y="91" fill="#e8eee9" font-family="Arial, sans-serif" font-size="27" font-weight="700">Local sources to cited answers</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(56 145)">
+      <rect width="190" height="126" rx="4" fill="#142126" stroke="#a6e7da" stroke-opacity=".5" />
+      <text x="20" y="31" fill="#ff8b6e" font-size="12" letter-spacing="2">01</text>
+      <text x="20" y="63" fill="#e8eee9" font-size="18" font-weight="700">Upload files</text>
+      <text x="20" y="91" fill="#8e9e9f" font-size="13">TXT · PDF · DOCX</text>
+      <text x="20" y="111" fill="#8e9e9f" font-size="13">CSV · JSON · Markdown</text>
+    </g>
+    <g transform="translate(300 145)">
+      <rect width="190" height="126" rx="4" fill="#142126" stroke="#a6e7da" stroke-opacity=".5" />
+      <text x="20" y="31" fill="#ff8b6e" font-size="12" letter-spacing="2">02</text>
+      <text x="20" y="63" fill="#e8eee9" font-size="18" font-weight="700">Extract + chunk</text>
+      <text x="20" y="91" fill="#8e9e9f" font-size="13">Normalize text</text>
+      <text x="20" y="111" fill="#8e9e9f" font-size="13">Persist source metadata</text>
+    </g>
+    <g transform="translate(544 145)">
+      <rect width="190" height="126" rx="4" fill="#142126" stroke="#d2ef73" stroke-opacity=".6" />
+      <text x="20" y="31" fill="#d2ef73" font-size="12" letter-spacing="2">03</text>
+      <text x="20" y="63" fill="#e8eee9" font-size="18" font-weight="700">TF-IDF index</text>
+      <text x="20" y="91" fill="#8e9e9f" font-size="13">Rank relevant passages</text>
+      <text x="20" y="111" fill="#8e9e9f" font-size="13">Persist index JSON</text>
+    </g>
+    <g transform="translate(788 145)">
+      <rect width="190" height="126" rx="4" fill="#142126" stroke="#ff8b6e" stroke-opacity=".6" />
+      <text x="20" y="31" fill="#ff8b6e" font-size="12" letter-spacing="2">04</text>
+      <text x="20" y="63" fill="#e8eee9" font-size="18" font-weight="700">Answer + cite</text>
+      <text x="20" y="91" fill="#8e9e9f" font-size="13">Offline or Anthropic</text>
+      <text x="20" y="111" fill="#8e9e9f" font-size="13">Trace + report export</text>
+    </g>
+    <g fill="none" stroke="#a6e7da" stroke-width="2" stroke-linecap="round">
+      <path d="M246 208h42" /><path d="M490 208h42" /><path d="M734 208h42" />
+    </g>
+    <g fill="#a6e7da">
+      <path d="M286 202l10 6-10 6z" /><path d="M530 202l10 6-10 6z" /><path d="M774 202l10 6-10 6z" />
+    </g>
+  </g>
+</svg>

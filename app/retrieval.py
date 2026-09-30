@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from .models import DocumentChunk, SourceSummary
+
+
+_QUERY_EXPANSIONS = {
+    "rag": "retrieval augmented generation",
+}
 
 
 @dataclass(frozen=True)
@@ -46,7 +52,7 @@ class RetrievalIndex:
     def search(self, query: str, top_k: int = 5) -> list[SearchResult]:
         if not query.strip() or not self._chunks or self._matrix is None:
             return []
-        query_vector = self._vectorizer.transform([query])
+        query_vector = self._vectorizer.transform([self._expanded_query(query)])
         scores = (self._matrix @ query_vector.T).toarray().ravel()
         ranked = sorted(enumerate(scores), key=lambda pair: pair[1], reverse=True)
         results = []
@@ -55,6 +61,15 @@ class RetrievalIndex:
                 continue
             results.append(SearchResult(chunk=self._chunks[index], score=float(score), rank=rank))
         return results
+
+    @staticmethod
+    def _expanded_query(query: str) -> str:
+        expansions = [
+            phrase
+            for acronym, phrase in _QUERY_EXPANSIONS.items()
+            if re.search(rf"\b{re.escape(acronym)}\b", query, flags=re.IGNORECASE)
+        ]
+        return " ".join([query, *expansions]) if expansions else query
 
     def save(self, path: Path) -> None:
         path = Path(path)
